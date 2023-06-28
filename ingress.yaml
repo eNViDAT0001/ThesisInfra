@@ -6,16 +6,21 @@ metadata:
   name: thesis-ingress
 
 spec:
+  tls:
+    - secretName: dummy-tls
+      hosts: 
+        - dummyquest.dev
   rules:
-      - http:
+      - host: dummyquest.dev
+        http:
           paths:
             - path: /
               pathType: Prefix
               backend:
                 service:
-                  name: web-service
+                  name: db-host-service
                   port:
-                    number: 3000
+                    number: 3333
       - host: web.dummyquest.dev
         http:
           paths:
@@ -26,16 +31,6 @@ spec:
                   name: web-service
                   port:
                     number: 3000
-      - host: db.dummyquest.dev
-        http:
-          paths:
-            - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: db-host-service
-                  port:
-                    number: 3333
       - host: be.dummyquest.dev
         http:
           paths:
