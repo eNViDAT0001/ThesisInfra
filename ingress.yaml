@@ -11,7 +11,7 @@ spec:
       hosts: 
         - dummyquest.dev
   rules:
-      - host: dummyquest.dev
+      - host: db.dummyquest.dev
         http:
           paths:
             - path: /
