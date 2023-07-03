@@ -1,22 +1,28 @@
-apiVersion: apps/v1
-
-kind: Deployment
-
+apiVersion: v1
+kind: Service
 metadata:
-  name: recommender-deployment
-
+  name: recommender
+spec:
+  selector:
+    app: recommender
+  type: ClusterIP
+  ports:
+    - port: 9180
+      targetPort: 9180
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recommender
 spec:
   replicas: 1
-
   selector:
     matchLabels:
-      component: recommender
-
+      app: recommender
   template:
     metadata:
       labels:
-        component: recommender
-
+        app: recommender
     spec:
       containers:
         - name: recommender
