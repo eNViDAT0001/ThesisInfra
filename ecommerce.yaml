@@ -28,7 +28,8 @@ spec:
         - name: ecommerce
           image: teabreak/thesis-ecomerce:latest
           ports:
-            - containerPort: 8082
+            - name: ecommerce
+              containerPort: 8082
           env:
             - name: STATE
               value: PRO

@@ -8,10 +8,10 @@ metadata:
   name: thesis-ingress
 spec:
   rules:
-      - host: thesis.info
+      - host: thesis.id.vn
         http:
           paths:
-#            - path: /?(.*)
+#            - path: /db/?(.*)
 #              pathType: Prefix
 #              backend:
 #                service:
@@ -32,7 +32,50 @@ spec:
                   name: ecommerce
                   port:
                     number: 8082
-
-
+#---
+##db host
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /$1
+#  name: thesis-ingress
+#spec:
+#  rules:
+#    - http:
+#        paths:
+#          - path: /?(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: db-host
+#                port:
+#                  number: 3333
+#---
+##Web
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /$1
+#  name: thesis-ingress
+#spec:
+#  rules:
+#    - http:
+#        paths:
+#          - path: /?(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: web
+#                port:
+#                  number: 3000
+#          - path: /?(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: ecommerce
+#                port:
+#                  number: 8082
 
 
