@@ -39,7 +39,7 @@ spec:
 #metadata:
 #  annotations:
 #    nginx.ingress.kubernetes.io/rewrite-target: /$1
-#  name: thesis-ingress
+#  name: thesis.info
 #spec:
 #  rules:
 #    - http:
@@ -58,7 +58,7 @@ spec:
 #metadata:
 #  annotations:
 #    nginx.ingress.kubernetes.io/rewrite-target: /$1
-#  name: thesis-ingress
+#  name: thesis.info
 #spec:
 #  rules:
 #    - http:
